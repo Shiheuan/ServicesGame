@@ -11,9 +11,9 @@ public class Main : MonoBehaviour
         // prepare locator TODO: somewhere else provide all services
         var audio = new ConsoleAudioManager();
         var loggedAudio = new LoggedAudioManager(audio);
-        Locator.Provide(loggedAudio);
+        CustomAudioLocator.Provide(loggedAudio);
         // end prepare
-        audioMgr = Locator.GetCustomAudio();
+        audioMgr = CustomAudioLocator.GetCustomAudio();
     }
 
     // Start is called before the first frame update

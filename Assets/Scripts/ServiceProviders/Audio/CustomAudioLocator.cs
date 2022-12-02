@@ -1,5 +1,5 @@
 // Audio locator
-public class Locator
+public class CustomAudioLocator
 {
     // version 0.1
     // private static ICustomAudio service_;
