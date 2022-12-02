@@ -6,11 +6,13 @@ public class Main : MonoBehaviour
 {
 
     ICustomAudio audioMgr;
+    DebugLogger logger;
     void Awake()
     {
         // prepare locator TODO: somewhere else provide all services
         var audio = new ConsoleAudioManager();
         var loggedAudio = new LoggedAudioManager(audio);
+        DebugLoggerLocator.Provide(new DefaultDebugLogger());
         CustomAudioLocator.Provide(loggedAudio);
         // end prepare
         audioMgr = CustomAudioLocator.GetCustomAudio();
@@ -19,7 +21,8 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var s = "TEST";
+        logger.Log($"Test Conditional Attribute in abstract class. {s}"); // worked
     }
 
     // Update is called once per frame
