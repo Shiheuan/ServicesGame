@@ -12,17 +12,19 @@ public class Main : MonoBehaviour
         // prepare locator TODO: somewhere else provide all services
         var audio = new ConsoleAudioManager();
         var loggedAudio = new LoggedAudioManager(audio);
-        DebugLoggerLocator.Provide(new DefaultDebugLogger());
+        DebugLoggerLocator.Provide(new UnityDebugLogger(""));
         CustomAudioLocator.Provide(loggedAudio);
         // end prepare
         audioMgr = CustomAudioLocator.GetCustomAudio();
+        logger = DebugLoggerLocator.GetDebugLogger();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         var s = "TEST";
-        logger.Log($"Test Conditional Attribute in abstract class. {s}"); // worked
+        logger.Log($"Test Conditional Attribute in abstract class. Log {s}"); // worked
+        logger.LogError($"Test Conditional Attribute in abstract class. ErrorLog {s}"); // worked
     }
 
     // Update is called once per frame

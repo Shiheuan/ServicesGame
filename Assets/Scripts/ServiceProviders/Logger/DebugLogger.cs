@@ -8,6 +8,6 @@ public abstract class DebugLogger
     public abstract void Log(object message);
     [Conditional("ENABLE_LOG")]
     public abstract void LogWarning(object message);
-    [Conditional("ENABLE_LOG")]
+    //[Conditional("ENABLE_LOG")]
     public abstract void LogError(object message);
 }
